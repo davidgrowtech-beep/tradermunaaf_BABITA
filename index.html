@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1394359462671755');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1394359462671755&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trader Munaaf Learning BASH</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #050505;
+    overflow-x: hidden;
+  }
+
+  /* BACKGROUND GRADIENT + CANDLESTICK FEEL */
+  .bg-glow {
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(250,204,21,0.18), transparent 45%),
+      radial-gradient(circle at 80% 85%, rgba(34,197,94,0.15), transparent 45%),
+      #050505;
+    z-index: -1;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(250,204,21,0.25);
+    border-radius: 24px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem 1.8rem;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+  }
+
+  .logo-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 4px solid rgba(250,204,21,0.8);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin: 0 auto 1rem;
+    display: block;
+    object-fit: cover;
+    background: #000;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .title span {
+    color: #facc15;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: #a5f3fc;
+    font-weight: 600;
+    margin: 0.5rem 0 0.75rem;
+  }
+
+  .badge {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1.25rem;
+  }
+
+  .btn-telegram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #000;
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(245,158,11,0.5);
+    text-decoration: none;
+    margin: 1.5rem 0;
+  }
+
+  .btn-telegram:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 18px 45px rgba(245,158,11,0.7);
+  }
+
+  .countdown-wrap {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-top: 0.75rem;
+  }
+
+  #countdown {
+    font-weight: 700;
+    color: #facc15;
+  }
+
+  .headline {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 1rem 0 0.25rem;
+  }
+
+  .cta-line {
+    color: #4ade80;
+    font-weight: 600;
+    margin: 0.25rem 0;
+  }
+
+  .highlight-line {
+    color: #facc15;
+    font-weight: 700;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: #e5e7eb;
+  }
+
+  .disclaimer {
+    font-size: 0.7rem;
+    color: #6b7280;
+    margin-top: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .fallback-link {
+    display: none;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: #22d3ee;
+  }
+
+  .fallback-link.show {
+    display: inline-block;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="glass-card">
+
+  <img
+    src="mnf.jpeg"
+    alt="Trader Munaaf Logo"
+    class="logo-img"
+  />
+
+  <h1 class="title">
+    TRADER MUNAAF <br> <span>Learning BASH</span>
+  </h1>
+
+  <p class="subtitle">
+    📈💰 Trade Smart. Learn Daily. | తెలివిగా ట్రేడ్ చేయండి. ప్రతిరోజూ నేర్చుకోండి.
+  </p>
+
+  <span class="badge">
+    🐂 Trusted Market Insights & Setups
+  </span>
+
+  <a href="https://t.me/+KVD85sMtIL02NzE1" id="telegramBtn" rel="noopener" class="btn-telegram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M16 8a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM6.79 10.89l-.27 3.67c.39 0 .56-.17.77-.38l1.85-1.76 3.84 2.8c.7.39 1.19.19 1.36-.65l2.47-11.59c.22-.98-.35-1.37-1.05-1.14L1.13 6.24c-.95.37-.93.9-.17 1.14l3.57 1.11 8.3-5.23c.39-.26.74-.12.45.14L6.79 10.89z"/>
+    </svg>
+    JOIN FREE LEARNING CHANNEL
+  </a>
+
+  <a href="https://t.me/+KVD85sMtIL02NzE1" id="fallbackLink" rel="noopener" class="fallback-link">
+    Not redirected? Tap here to join manually →
+  </a>
+
+  <p class="countdown-wrap">
+    Auto-opening channel in <span id="countdown">15</span>s...
+  </p>
+
+  <h2 class="headline">
+    మీరు ట్రేడింగ్ నేర్చుకుని లాభాలు సంపాదించాలనుకుంటున్నారా?<br>
+    <span style="font-size:0.85rem; font-weight:600; color:#cbd5e1;">Want to learn trading and start earning profits?</span>
+  </h2>
+
+  <p class="cta-line">
+    అయితే, పైన ఉన్న Telegram బటన్‌పై క్లిక్ చేయండి 🚀<br>
+    <span style="font-size:0.78rem; color:#9ca3af; font-weight:500;">If yes, tap the Telegram button above 🚀</span>
+  </p>
+
+  <p class="highlight-line">
+    💎 DAILY MARKET ANALYSIS & TRADE SETUPS 💎<br>
+    <span style="font-size:0.78rem; color:#eab308; font-weight:600;">రోజువారీ మార్కెట్ విశ్లేషణ & ట్రేడ్ సెటప్‌లు</span>
+  </p>
+
+  <div class="features">
+    <div class="feature">📊 <span><b>Daily Live Market Analysis</b> shared directly in the channel<br><i style="font-size:0.82rem; color:#9ca3af;">రోజువారీ మార్కెట్ విశ్లేషణ నేరుగా ఛానెల్‌లో</i></span></div>
+    <div class="feature">🔥 <span><b>Proven Trading Strategies</b> broken down step by step<br><i style="font-size:0.82rem; color:#9ca3af;">నిరూపితమైన ట్రేడింగ్ వ్యూహాలు, దశలవారీగా వివరణతో</i></span></div>
+    <div class="feature">💯 <span><b>Risk-Managed Setups</b> focused on consistency, not luck<br><i style="font-size:0.82rem; color:#9ca3af;">అదృష్టం కాదు, స్థిరత్వంపై దృష్టి పెట్టిన రిస్క్-మేనేజ్డ్ సెటప్‌లు</i></span></div>
+  </div>
+
+  <p class="disclaimer">
+    For educational purposes only. Trading in financial markets involves risk. Past performance is not indicative of future results.<br>
+    ఇది కేవలం విద్యా ప్రయోజనాల కోసమే. ఆర్థిక మార్కెట్లలో ట్రేడింగ్‌లో రిస్క్ ఉంటుంది. గత పనితీరు భవిష్యత్తు ఫలితాలకు హామీ కాదు.
+  </p>
+
+  <a href="https://t.me/srsagency" target="_blank" style="
+      display:inline-block;
+      margin-top:0.75rem;
+      background-color:#f00000;
+      color:#ffffff;
+      padding:6px 14px;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:12px;
+      font-family:sans-serif;">
+    📩 Visit @ SRS | Marketing ...
+  </a>
+</div>
+
+<script>
+(function () {
+  /* ================================================================
+     CONFIG — sirf ye values edit karo
+     ================================================================ */
+  const CONFIG = {
+    PIXEL_ID: "1394359462671755",
+    TELEGRAM_LINK: "https://t.me/+KVD85sMtIL02NzE1",
+    ENABLE_COUNTDOWN: true,
+    COUNTDOWN_SECONDS: 15,
+    MIN_DWELL_MS: 1500,        // kam se kam itni der page pe rukna chahiye genuine maanne ke liye
+    REQUIRE_INTERACTION: true, // scroll/mouse/touch signal zaroori hai ya nahi
+    BOT_CHECK_ENABLED: true,
+    REDIRECT_DELAY_MS: 200,    // pixel beacon ko flush hone ka time dene ke liye
+    DEDUP_WINDOW_MS: 24 * 60 * 60 * 1000, // 24 ghante — isi visitor ka dobara Lead na fire ho
+    MAX_CLICKS_PER_MIN: 4,     // ek hi second/minute me bahut zyada clicks = suspicious
+  };
+
+  const DEDUP_KEY = 'fbLeadFired_' + CONFIG.PIXEL_ID;
+  const CLICK_LOG_KEY = 'fbClickLog_' + CONFIG.PIXEL_ID;
+
+  /* ----------------------------------------------------------------
+     1) ENGAGEMENT SIGNALS — bots/impulsive junk clicks filter karne
+     ke liye. Lead event sirf genuine engagement pe fire hota hai.
+     ---------------------------------------------------------------- */
+  const pageLoadTime = Date.now();
+  let hasScrolled = false;
+  let hasMouseMoved = false;
+  window.addEventListener('scroll', () => { hasScrolled = true; }, { once: true });
+  document.addEventListener('mousemove', () => { hasMouseMoved = true; }, { once: true });
+  document.addEventListener('touchstart', () => { hasMouseMoved = true; }, { once: true });
+
+  function isLikelyRealUser() {
+    const timeOnPage = Date.now() - pageLoadTime;
+    if (timeOnPage < CONFIG.MIN_DWELL_MS) return false;
+    if (CONFIG.REQUIRE_INTERACTION && !hasScrolled && !hasMouseMoved) return false;
+    return true;
+  }
+
+  /* ---- 2) Bot filtering ---- */
+  function isProbablyBot() {
+    if (!CONFIG.BOT_CHECK_ENABLED) return false;
+    if (navigator.webdriver) return true;
+    if (/bot|crawl|spider|slurp|headless/i.test(navigator.userAgent)) return true;
+    // Extra signals: headless browsers often report 0 plugins or no languages
+    if (navigator.plugins && navigator.plugins.length === 0 && !/iphone|android/i.test(navigator.userAgent)) return true;
+    if (!navigator.languages || navigator.languages.length === 0) return true;
+    // Screen size sanity check — some bot/emulator stacks report 0 or absurd values
+    if (window.screen && (window.screen.width < 200 || window.screen.height < 200)) return true;
+    return false;
+  }
+
+  /* ---- 3) Cross-session / cross-reload dedup ----
+     Ek hi visitor (same browser) reload karke dobara click kare toh
+     bhi Lead sirf ek baar count ho, DEDUP_WINDOW_MS ke andar. */
+  function alreadyFiredRecently() {
+    try {
+      const raw = localStorage.getItem(DEDUP_KEY);
+      if (!raw) return false;
+      const ts = parseInt(raw, 10);
+      if (isNaN(ts)) return false;
+      return (Date.now() - ts) < CONFIG.DEDUP_WINDOW_MS;
+    } catch (e) {
+      return false; // localStorage blocked (private mode etc) — fail open
+    }
+  }
+  function markFired() {
+    try { localStorage.setItem(DEDUP_KEY, String(Date.now())); } catch (e) {}
+  }
+
+  /* ---- 3b) Rapid click-spam guard ----
+     Same browser se ek hi minute me bahut saare clicks aana automation
+     ka signal hai — is case me sirf redirect hota hai, Lead nahi. */
+  function isClickSpam() {
+    try {
+      const raw = sessionStorage.getItem(CLICK_LOG_KEY);
+      const now = Date.now();
+      let log = raw ? JSON.parse(raw) : [];
+      log = log.filter((t) => now - t < 60000);
+      log.push(now);
+      sessionStorage.setItem(CLICK_LOG_KEY, JSON.stringify(log));
+      return log.length > CONFIG.MAX_CLICKS_PER_MIN;
+    } catch (e) {
+      return false; // storage blocked — fail open
+    }
+  }
+
+  /* ----------------------------------------------------------------
+     4) TRACK + REDIRECT — global function (window.trackAndRedirect)
+     taaki HTML mein onclick="trackAndRedirect(event)" bhi kaam kare,
+     aur neeche wala auto-wiring bhi isi ko call kare. Dono ek hi
+     "fired" guard share karte hain, isliye kitne bhi buttons ho ya
+     kitni bhi baar click ho, Lead event sirf EK BAAR fire hoga
+     (is session mein, aur DEDUP_WINDOW_MS ke andar reload pe bhi).
+     ---------------------------------------------------------------- */
+  let fired = false;
+
+  window.trackAndRedirect = function (event) {
+    if (event && typeof event.preventDefault === 'function') {
+      event.preventDefault();
+    }
+
+    // isTrusted check — reject synthetic clicks dispatched by scripts/bots.
+    // Real human clicks/taps always have isTrusted === true.
+    const isSyntheticClick = event && event.isTrusted === false;
+    const spam = isClickSpam();
+
+    if (fired) {
+      doRedirect();
+      return;
+    }
+    fired = true;
+
+    if (isSyntheticClick || isProbablyBot() || spam) {
+      if (typeof fbq !== 'undefined') {
+        fbq('trackCustom', 'SuspiciousClick', {
+          reason: isSyntheticClick ? 'synthetic' : (spam ? 'click_spam' : 'bot_signal'),
+        });
+      }
+      doRedirect();
+      return;
+    }
+
+    const eventId = 'Lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+    const dedupHit = alreadyFiredRecently();
+
+    if (typeof fbq !== 'undefined') {
+      if (dedupHit) {
+        // Same visitor already counted recently — don't inflate the Lead count
+        fbq('trackCustom', 'DuplicateClick', { eventID: eventId });
+      } else if (isLikelyRealUser()) {
+        fbq('track', 'Lead', {
+          content_name: 'Trader Munaaf Telegram Community',
+          button_click: true,
+        }, { eventID: eventId });
+        markFired();
+      } else {
+        // Bahut jaldi click hua — Lead data clean rakhne ke liye alag event
+        fbq('trackCustom', 'LowQualityClick', { eventID: eventId });
+      }
+    }
+
+    doRedirect();
+  };
+
+  function doRedirect() {
+    // Chhota delay taaki pixel beacon ko network call flush karne ka
+    // time mil jaaye, warna instant navigation kabhi kabhi beacon ko
+    // cancel kar deti hai (especially slow mobile connections).
+    setTimeout(() => {
+      window.location.href = CONFIG.TELEGRAM_LINK;
+    }, CONFIG.REDIRECT_DELAY_MS);
+
+    // Fallback link agar page pe hai (id="fallbackLink"), use bhi ready kar do
+    const fallback = document.getElementById('fallbackLink');
+    if (fallback) {
+      fallback.href = CONFIG.TELEGRAM_LINK;
+      setTimeout(() => { fallback.classList.add('show'); }, 1200);
+    }
+  }
+
+  /* ----------------------------------------------------------------
+     5) AUTO-WIRE ALL TELEGRAM BUTTONS
+     ---------------------------------------------------------------- */
+  document.addEventListener('DOMContentLoaded', wireAllButtons);
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    wireAllButtons();
+  }
+
+  function wireAllButtons() {
+    const selectors = [
+      '[data-telegram-btn]',
+      '.telegram-btn',
+      '#telegramBtn',
+      '#stickyTelegramBtn',
+      '#fallbackLink',
+      '[id^="telegramBtn"]',
+    ];
+    const buttons = document.querySelectorAll(selectors.join(','));
+    buttons.forEach((el) => {
+      el.addEventListener('click', window.trackAndRedirect);
+    });
+
+    setupCountdown();
+  }
+
+  /* ----------------------------------------------------------------
+     6) COUNTDOWN (optional, auto-redirect without click)
+     NOTE: Auto-redirect hone par Lead event NAHI fire hota — sirf
+     redirect hota hai (bina click ke genuine intent confirm nahi hota).
+     Auto-redirect bhi engagement check pass karne par hi genuine
+     traffic maana jaata hai, warna simple navigation hoti hai.
+     ---------------------------------------------------------------- */
+  function setupCountdown() {
+    if (!CONFIG.ENABLE_COUNTDOWN) return;
+
+    const counter =
+      document.getElementById('countdown') ||
+      document.getElementById('countTxt') ||
+      document.getElementById('count');
+
+    let time = CONFIG.COUNTDOWN_SECONDS;
+    if (counter) counter.textContent = time;
+
+    const timer = setInterval(() => {
+      time--;
+      if (counter) counter.textContent = time;
+
+      if (time <= 0) {
+        clearInterval(timer);
+        if (fired) return; // user ne already click karke navigate kar diya hai
+
+        fired = true;
+        if (typeof fbq !== 'undefined' && !isProbablyBot()) {
+          fbq('trackCustom', 'AutoRedirect', {});
+        }
+        window.location.href = CONFIG.TELEGRAM_LINK;
+      }
+    }, 1000);
+  }
+})();
+</script>
+
+</body>
+</html>
